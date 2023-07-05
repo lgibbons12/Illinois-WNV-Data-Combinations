@@ -7,10 +7,6 @@ from hourly_data import check, api_downloads
 
 
 
-
-
-
-
 def arrange_dfs(entered_df):
     #read in the data
     df = entered_df

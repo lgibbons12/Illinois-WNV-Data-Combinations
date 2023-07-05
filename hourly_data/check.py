@@ -14,6 +14,7 @@ months_dict = {
 }
 leap_years = [2000, 2004, 2008, 2012, 2016, 2020]
 
+#checks how many days in the month there are based on year and month
 def days_check(month: int, year):
     
     if month < 0 or month > 13:
@@ -53,6 +54,7 @@ def days_check(month: int, year):
     return days
 
 
+#formats month string to be used for cdsapi
 def get_month(month: int):
     if month < 0 or month > 13:
         raise ValueError("Incorrect month")

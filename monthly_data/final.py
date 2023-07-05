@@ -17,15 +17,19 @@ def do(entered_df):
     ds = ds.sel(expver = 1)
 
     list = ["t2m", "tp", "lai_hv", "lai_lv"]
+
+    #for each variables
     def return_the_four(entered):
         temp = ds[entered]
 
+        #get the data for each row in the exisiting dataframe
         selected_values = temp.sel(time = inputs['Time'], latitude = inputs['Latitude'], longitude = inputs['Longitude'], method="nearest")
         
-
+        #convert the data to a dictionary
         cleaned_info = pd.DataFrame({"keys": keys, entered: selected_values.values})
         df_dict = cleaned_info.set_index("keys")[entered].to_dict()
 
+        #map the dictionary to the existing dataframe
         df[entered] = df["keys"].map(df_dict)
         df.drop("Keys", axis=1)
 

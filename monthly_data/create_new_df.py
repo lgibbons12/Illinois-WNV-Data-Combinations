@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 
+#creates new dataframe with keys
 def new_df(entered_df):
     df = entered_df
     keys = np.arange(len(df))
